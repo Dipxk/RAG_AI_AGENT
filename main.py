@@ -26,3 +26,9 @@ inngest_client = inngest.Inngest(
 
 # Initialize FastAPI application
 app = FastAPI()  # Setting up the FASTAPI
+
+# Simple health check endpoint
+@app.get("/health")
+async def health_check():
+    """Health check endpoint to verify the API is running."""
+    return {"status": "healthy", "timestamp": datetime.datetime.now().isoformat()}
